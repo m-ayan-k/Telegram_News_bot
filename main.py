@@ -10,7 +10,7 @@ try:
 except KeyError:
     Telegram_token = "Token not available!"
 
-# 6053215161:AAFNSmjcqALqAgSl3Wm6zvjGrkmn6Dc6OqY
+
 bot = telegram.Bot(token=Telegram_token)
 
 
@@ -18,7 +18,7 @@ def ok(time):
     lst = time.split(" ")
     if len(lst) < 2:
         return True
-    if lst[1] == "minutes" or int(lst[0]) <= 4 and lst[1] ==  "hours":
+    if lst[1] == "minutes" or int(lst[0]) <= 6 and lst[1] ==  "hours":
         return False
     return True
 
@@ -62,18 +62,12 @@ async def get_url(starting_url):
     return url
 
 
-
-
-
-
-
-
 async def main():
     url = await get_url('https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en')
     news_data = await get_news_data(url)
 
     print(news_data)
-    for news in news_data:
+    for news in news_data[:15]:
         msg = "\n"
         text = news['text']
         link = news['link']
