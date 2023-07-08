@@ -67,7 +67,7 @@ async def main():
     news_data = await get_news_data(url)
 
     print(news_data)
-    for news in news_data[:15]:
+    for news in news_data[:2]:
         msg = "\n"
         text = news['text']
         link = news['link']
