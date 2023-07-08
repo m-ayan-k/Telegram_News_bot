@@ -30,7 +30,7 @@ async def get_news_data(url_list):
         soup = BeautifulSoup(response.text, 'lxml')
         elements = soup.find_all(class_='IBr9hb')
         h_tags = ["h1", "h2", "h3", "h4", 'h5', 'h6']
-        for ele in elements[:7]:
+        for ele in elements[:2]:
             try:
                 link = ele.find('a').get('href')
                 img_link = ele.find('img')['src']
